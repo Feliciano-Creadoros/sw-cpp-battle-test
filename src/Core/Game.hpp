@@ -40,7 +40,7 @@
 		std::shared_ptr<UnitHandler> _unitHandler;
 		// Battle map
 		std::shared_ptr<IMap> _map;
-		// �urrent tick of the game
+		// Current tick of the game
 		uint64_t _tick;
 
 		// Event logger
