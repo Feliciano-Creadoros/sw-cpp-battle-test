@@ -36,21 +36,22 @@ namespace core
 		int32_t r2min = innerRadius * innerRadius;
 		int32_t r2max = outerRadius * outerRadius;
 
-		int32_t y0 = std::max(0, cX - outerRadius);
-		int32_t y1 = std::min((int32_t)_height - 1, cX + outerRadius);
-		int32_t x0 = std::max(0, cY - outerRadius);
-		int32_t x1 = std::min((int32_t)_width - 1, cY + outerRadius);
+		int32_t x0 = std::max(0, cX - outerRadius);
+		int32_t x1 = std::min((int32_t)_height - 1, cX + outerRadius);
+		int32_t y0 = std::max(0, cY - outerRadius);
+		int32_t y1 = std::min((int32_t)_width - 1, cY + outerRadius);
 
-		for (int y = y0; y <= y1; ++y)
+		for (int x = x0; x <= x1; ++x)
 		{
-			int32_t dy = y - cX;
-			for (int x = x0; x <= x1; ++x)
+			int32_t dX = x - cX;
+
+			for (int y = y0; y <= y1; ++y)
 			{
-				int32_t dx = x - cY;
-				int32_t d2 = dx * dx + dy * dy;
+				int32_t dY = y - cY;
+				int32_t d2 = dY * dY + dX * dX;
 				if (d2 <= r2max && d2 > r2min)
 				{
-					std::vector<uint32_t> currCellIds = _cells[y][x].getUnitIds();
+					std::vector<uint32_t> currCellIds = _cells[x][y].getUnitIds();
 					ids.insert(std::end(ids), std::begin(currCellIds), std::end(currCellIds));
 				}
 			}
