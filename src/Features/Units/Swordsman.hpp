@@ -17,7 +17,7 @@ namespace features
 			std::unordered_map<Characteristic, std::pair<int32_t, int32_t>> characteristics
 				= {{Characteristic::HP, {hp, hp}},
 				   {Characteristic::Strength, {strength, strength}}};
-			setCharacteristic(characteristics);
+			setCharacteristics(characteristics);
 
 			_death_action = std::make_unique<Death>();
 			_actions.push_back(std::make_unique<Melee>());

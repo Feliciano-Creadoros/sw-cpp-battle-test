@@ -37,13 +37,13 @@ namespace core
 			std::shared_ptr<sw::EventLog> eventLog);
 
 		/**
-		* In this method, death actions assigned to the unit are attempted.
-		* @param map - the battle map interface, through which we can access the locations of units on the map.
+		* In this method, death action assigned to the unit are attempted.
+		* @param map - The battle map interface, through which we can access the locations of units on the map.
         * @param unitHandler - Unit Handler.
 		* @param tick - Current simulation tick.
 		* @param eventLog - Logger.
-		* @return Success of completed death actions. false - no action was completed due to non-compliance with the conditions for these actions. 
-		* true - one of the death actions was performed.
+		* @return Success of completed death action. false - no action was completed due to non-compliance with the conditions for these action. 
+		* true - the death action was performed.
 		*/
 		virtual bool deathAction(
 			std::shared_ptr<IMap>& map,
@@ -70,7 +70,7 @@ namespace core
 		* @return current coordinates
 		*/
 		[[nodiscard]]
-		Point getCoordinates() const;
+		const Point& getCoordinates() const;
 
 		/**
 		* Setter for coordinates
@@ -83,7 +83,7 @@ namespace core
 		* @return current coordinates
 		*/
 		[[nodiscard]]
-		Point getTargetCoordinates() const;
+		const Point& getTargetCoordinates() const;
 
 		/**
 		* Setter for target coordinates
@@ -109,7 +109,7 @@ namespace core
 		* Setter for characteristic
 		* @param characteristics - Hash table of all unit characteristics
 		*/
-		void setCharacteristic(
+		void setCharacteristics(
 			std::unordered_map<features::Characteristic, std::pair<int32_t, int32_t>> characteristics);
 
 		/**
@@ -122,13 +122,13 @@ namespace core
 
 
 	protected:
-		// Unit action list. Such as movement, melee attack, shooting, hooking other units, etc.
+		// Unit action vector. Such as movement, death, melee attack, shooting, hooking other units, etc.
 		std::vector<std::unique_ptr<IAction>> _actions;
 		// Unit death action. Runs after all actions are completed.
 		std::unique_ptr<IAction> _death_action;
 		// Unit id
 		uint32_t _id;
-		// Unit id
+		// Unit name
 		std::string _name;
 		// Unit target position
 		Point _targetPoint;

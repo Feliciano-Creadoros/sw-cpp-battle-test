@@ -5,7 +5,7 @@
 
 namespace core
 {
-	/*
+	/**
 	* Class with position
 	*/
 	class Point

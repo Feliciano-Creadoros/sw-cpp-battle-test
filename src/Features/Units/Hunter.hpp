@@ -19,7 +19,7 @@ namespace features
 				   {Characteristic::Agility, {agility, agility}},
 				   {Characteristic::Range, {range, range}},
 				   {Characteristic::Strength, {strength, strength}}};
-			setCharacteristic(characteristics);
+			setCharacteristics(characteristics);
 
 			_death_action = std::make_unique<Death>();
 			_actions.push_back(std::make_unique<Ranged>());

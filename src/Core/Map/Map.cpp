@@ -6,7 +6,6 @@
 
 namespace core
 {
-
 	Map::Map(uint32_t width, uint32_t height) :
 			_width(width),
 			_height(height),
@@ -31,7 +30,6 @@ namespace core
 
 		int32_t cX = point.getX();
 		int32_t cY = point.getY();
-
 
 		int32_t r2min = innerRadius * innerRadius;
 		int32_t r2max = outerRadius * outerRadius;

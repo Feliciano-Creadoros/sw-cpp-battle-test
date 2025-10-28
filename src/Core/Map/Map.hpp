@@ -68,7 +68,8 @@ namespace core
 
 	private:
 		/**
-		* Checks whether the coordinate @param point lies within the map
+		* Checks whether the coordinate point lies within the map.
+		* Throws an exception if the point is outside the map.
         * @param point coordinate to check
 		*/
 		void checkPosition(const Point& point) const;

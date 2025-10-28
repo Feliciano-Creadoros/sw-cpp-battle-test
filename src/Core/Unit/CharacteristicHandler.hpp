@@ -23,10 +23,10 @@ namespace core
 		int32_t getCharacteristic(features::Characteristic type);
 
 		/**
-		* Setter for characteristic
+		* Setter for characteristics
 		* @param characteristics - Hash table of all unit characteristics
 		*/
-		void setCharacteristic(std::unordered_map<features::Characteristic, std::pair<int32_t, int32_t>> characteristics);
+		void setCharacteristics(std::unordered_map<features::Characteristic, std::pair<int32_t, int32_t>> characteristics);
 
 		/**
 		* For changing characteristic

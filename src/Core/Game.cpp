@@ -64,6 +64,7 @@ namespace core
 			return false;
 		}
 		bool endGameFlag = false;
+		// Units perform their actions
 		for (auto& [unitId, unit] : units)
 		{			
 			if (unit->doAction(_map, _unitHandler, _tick, _eventLog))

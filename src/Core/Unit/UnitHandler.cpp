@@ -6,7 +6,9 @@
 
 namespace core
 {
-	UnitHandler::UnitHandler() {}
+	UnitHandler::UnitHandler() :
+			_units(std::map<uint32_t, std::shared_ptr<Unit>>())
+	{}
 
 	std::map<uint32_t, std::shared_ptr<Unit>> UnitHandler::getUnits()
 	{

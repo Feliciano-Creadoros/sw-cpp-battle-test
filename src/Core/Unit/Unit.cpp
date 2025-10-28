@@ -58,7 +58,7 @@ namespace core
 		return _name;
 	}
 
-	Point Unit::getCoordinates() const
+	const Point& Unit::getCoordinates() const
 	{
 		return _point;
 	}
@@ -68,7 +68,7 @@ namespace core
 		_point = point;
 	}
 
-	Point Unit::getTargetCoordinates() const
+	const Point& Unit::getTargetCoordinates() const
 	{
 		return _targetPoint;
 	}
@@ -88,10 +88,10 @@ namespace core
 		return _characteristicsHandler->getCharacteristic(type);
 	}
 
-	void Unit::setCharacteristic(
+	void Unit::setCharacteristics(
 		std::unordered_map<features::Characteristic, std::pair<int32_t, int32_t>> characteristics)
 	{
-		_characteristicsHandler->setCharacteristic(characteristics);
+		_characteristicsHandler->setCharacteristics(characteristics);
 	}
 
 	int32_t Unit::incrCharacteristic(features::Characteristic type, int32_t val)
