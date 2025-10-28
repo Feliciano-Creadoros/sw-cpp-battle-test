@@ -13,9 +13,15 @@ namespace features
 	{
 		auto unit = unitHandler->getUnit(unitId);
 
+		// If there are enemies nearby, we cannot shoot
+		std::vector<uint32_t> nearEnemiesId = map->getUnitsInZone(unit->getCoordinates(), 0, 1);
+		if (nearEnemiesId.size() > 0)
+		{
+			return false;
+		}
+
 		int32_t range = unit->getCharacteristic(Characteristic::Range);
 		std::vector<uint32_t> enemiesId = map->getUnitsInZone(unit->getCoordinates(), 1, range);
-		
 		if (enemiesId.size() == 0)
 		{
 			return false;

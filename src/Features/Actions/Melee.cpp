@@ -14,7 +14,6 @@ namespace features
 		auto unit = unitHandler->getUnit(unitId);
 
 		std::vector<uint32_t> enemiesId = map->getUnitsInZone(unit->getCoordinates(), 0, 1);
-		
 		if (enemiesId.size() == 0)
 		{
 			return false;

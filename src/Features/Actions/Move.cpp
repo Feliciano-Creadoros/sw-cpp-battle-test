@@ -17,8 +17,6 @@ namespace features
 		auto unit = unitHandler->getUnit(unitId);
 
 		core::Point targetPoint = unit->getTargetCoordinates();
-
-
 		core::Point currPoint = unit->getCoordinates();
 
 		if (currPoint == targetPoint)
