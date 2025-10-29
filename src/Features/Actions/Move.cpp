@@ -18,16 +18,11 @@ namespace features
 
 		core::Point targetPoint = unit->getTargetCoordinates();
 		core::Point currPoint = unit->getCoordinates();
-
 		if (currPoint == targetPoint)
 		{
-			eventLog->log(
-				tick,
-				sw::io::MarchEnded{
-					unit->getId(), unit->getCoordinates().getX(), unit->getCoordinates().getY()});
-
 			return false;
 		}
+		
 		uint32_t newX = currPoint.getX();
 		uint32_t newY = currPoint.getY();
 
@@ -59,6 +54,13 @@ namespace features
 			unit->setCoordinates(newPoint);
 			map->setToCell(newPoint, unitId, unit->geOccupyStatus());
 			eventLog->log(tick, sw::io::UnitMoved{unitId, newX, newY});
+
+			if (newPoint == targetPoint)
+			{
+				eventLog->log(
+					tick,
+					sw::io::MarchEnded{unit->getId(), unit->getCoordinates().getX(), unit->getCoordinates().getY()});
+			}
 			return true;
 		}
 
